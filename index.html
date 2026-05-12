@@ -370,9 +370,14 @@ async function loadActive(){
   activeEvents={};
   let count=0;
 
-  rows.forEach(r=>{
-    const id=r[0]?.trim();
-    if(!id) return;
+ 
+rows.forEach(r=>{
+  const id=r[0]?.trim();
+  if(!id) return;
+
+  // ✅ filtr – tylko parkomaty z listy
+  if(!allParkomaty[id]) return;
+
 
     if(!activeEvents[id]) activeEvents[id]=[];
 
